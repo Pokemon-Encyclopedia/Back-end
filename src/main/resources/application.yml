@@ -10,3 +10,13 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
+logging:
+  level:
+    com.project.PokemonEncyclopedia.global.api: DEBUG
+
+feign:
+  client:
+    config:
+      default:
+        logger-level: full
