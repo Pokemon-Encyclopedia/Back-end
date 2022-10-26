@@ -9,14 +9,24 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
-logging:
-  level:
-    com.project.PokemonEncyclopedia.global.api: DEBUG
+  graphql:
+    schema:
+      file-extensions: .graphqls
+      locations: classpath:graphql/**/
+    graphiql:
+      enabled: true
+      printer:
+        enabled: true
 
-feign:
-  client:
-    config:
-      default:
-        logger-level: full
+#logging:
+#  level:
+#    com.project.PokemonEncyclopedia.global.api: DEBUG
+#
+#feign:
+#  client:
+#    config:
+#      default:
+#        logger-level: full
+

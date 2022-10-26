@@ -1,14 +1,15 @@
 package com.project.PokemonEncyclopedia.domain.pokemon;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.project.PokemonEncyclopedia.domain.pokemon.enumType.Types;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Builder
@@ -22,5 +23,15 @@ public class Pokemon {
     private Long id;
 
     private String name;
+
+//    @Column
+    @ElementCollection
+//    @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "types", joinColumns = @JoinColumn(name = "id"))
+    private List<String> types = new ArrayList<>();
+
+    private String front_default;
+
+    private String back_default;
 
 }

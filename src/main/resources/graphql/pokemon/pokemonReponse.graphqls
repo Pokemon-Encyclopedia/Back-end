@@ -1,0 +1,7 @@
+type pokemonResponse {
+    id : ID
+    name : String
+    front_default : String
+    back_default : String
+    types : String
+}
