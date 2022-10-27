@@ -1,3 +1,4 @@
 type Query {
     findAll : [pokemonResponse]
+    findPokemonById(id : ID!) : pokemonResponse
 }

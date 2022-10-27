@@ -15,7 +15,9 @@ public class PokemonService {
     private final PokemonRepository pokemonRepository;
 
     @Transactional(readOnly = true)
-    public List<Pokemon> findAll() {
-        return pokemonRepository.findAll();
+    public Pokemon findPokemonById(Long id) {
+        return pokemonRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("포켓몬이 없습니다"));
     }
+
 }
